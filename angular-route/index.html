@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- define angular app -->
+    <html ng-app="scotchApp">
+    <head >
+      <!-- SCROLLS -->
+      <!-- load bootstrap and fontawesome via CDN -->
+      <link rel="stylesheet" href="resources/bower/bootstrap/dist/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="resources/bower/fontawesome/css/font-awesome.css" />
+
+    </head>
+
+    <!-- define angular controller -->
+    <body ng-controller="mainController">
+
+        <!-- HEADER AND NAVBAR -->
+        <header>
+            <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Angular Routing Example</a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="#/about"><i class="fa fa-shield"></i> About</a></li>
+                    <li><a href="#/contact"><i class="fa fa-comment"></i> Contact</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT AND INJECTED VIEWS -->
+        <div>
+
+            <!-- angular templating -->
+            <!-- this is where content will be injected -->
+            <ng-view></ng-view>
+
+        </div>
+
+      <!-- SPELLS -->
+
+      <script src="resources/bower/requirejs/require.js"></script>
+      <script src="resources/bower/angular/angular.min.js"></script>
+      <script src="resources/bower/angular-route/angular-route.js"></script>
+      <script src="resources/bower/angular-couch-potato/dist/angular-couch-potato.js"></script>
+      <script src="script.js"></script>
+
+    </body>
+</html>

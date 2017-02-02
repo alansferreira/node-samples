@@ -1,0 +1,3 @@
+mongod.pdb
+mongos.pdb
+mongo/data/*
