@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 var child_process =  require('child_process');
 
+try {
+  child_process.execSync('taskkill /F /IM mongod.exe');
+} catch (error) {
+}
+
 var mongo = child_process.exec('mongo\\bin\\mongod --dbpath mongo\\data', (error, stdout, stderr) => {
   if (error) {
     console.error('exec error: ${error}');
@@ -11,7 +16,7 @@ var mongo = child_process.exec('mongo\\bin\\mongod --dbpath mongo\\data', (error
 });
 
 //update package version
-var npm = child_process.execSync('npm version prerelease');
+//var npm = child_process.execSync('npm version prerelease');
 var pjson = require('../package.json');
 console.log(pjson.version)
 
