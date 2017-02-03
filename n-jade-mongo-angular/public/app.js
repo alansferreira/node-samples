@@ -24,13 +24,13 @@ app.config(function($routeProvider, $controllerProvider, $compileProvider, $filt
   $routeProvider
     // Lazy loading routing
     .when('/', {
-      templateUrl : 'pages/home',
+      templateUrl : '/myapp/page/home',
       controller  : 'homeController',
       resolve: {
         load: function ($q, $rootScope) {
           var deferred = $q.defer();
           
-          require (['controllers/home-controller'], function () {$rootScope.$apply(function () { deferred.resolve(); });});
+          require (['/controllers/home-controller.js'], function () {$rootScope.$apply(function () { deferred.resolve(); });});
 
           return deferred.promise;
         }
@@ -38,13 +38,13 @@ app.config(function($routeProvider, $controllerProvider, $compileProvider, $filt
     })
     // Lazy loading routing
     .when('/about', {
-      templateUrl : 'pages/about',
+      templateUrl : '/myapp/page/about',
       controller  : 'aboutController',
       resolve: {
         load: function ($q, $rootScope) {
           var deferred = $q.defer();
           
-          require (['controllers/about-controller'], function () {$rootScope.$apply(function () { deferred.resolve(); });});
+          require (['/controllers/about-controller.js'], function () {$rootScope.$apply(function () { deferred.resolve(); });});
           
           return deferred.promise;
         }
@@ -52,13 +52,13 @@ app.config(function($routeProvider, $controllerProvider, $compileProvider, $filt
     })
     // Lazy loading routing
     .when('/contact', {
-      templateUrl : 'pages/contact',
+      templateUrl : '/myapp/page/contact',
       controller  : 'contactController',
       resolve: {
         load: function ($q, $rootScope) {
           var deferred = $q.defer();
           
-          require (['controllers/contact-controller'], function () {$rootScope.$apply(function () { deferred.resolve(); });});
+          require (['controllers/contact-controller.js'], function () {$rootScope.$apply(function () { deferred.resolve(); });});
           
           return deferred.promise;
         }
