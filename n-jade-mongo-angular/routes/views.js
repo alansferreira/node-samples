@@ -4,7 +4,7 @@ module.exports = function(app){
   var apiRouter = express.Router();
 
   /* bypass page names to jade views */
-  app.use('/', 
+  app.use('/myapp/', 
     apiRouter.get('/page/:viewName', function(req, res, next) {
       res.render(req.params.viewName, { title: 'Express' });
     })
