@@ -1,0 +1,204 @@
+/* manter o footer sempre amostra e abaixo*/
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
+header, main, footer {
+    padding-left: 0px;
+}
+
+/* card title*/
+.card-title.full {
+    align-items: center;
+    /* color: rgba(255,255,255,.8); */
+    display: block;
+    display: flex;
+    justify-content: stretch;
+    line-height: normal;
+    padding: 20px 16px;
+    perspective-origin: 165px 56px;
+    transform-origin: 165px 56px;
+    box-sizing: border-box;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.card-content.full {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+.card-content.scroll-y{
+	overflow-y:scroll;
+	max-height: 300px;
+}
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 400;
+    min-height: auto;
+    overflow: hidden;
+    width: auto;
+    z-index: 1;
+    position: relative;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+
+.text-small{
+	font-size: x-small;
+}
+
+/* overrides 
+   /sgtr-web/src/main/webapp/resources/bower/angular-data-grid/demo/material/css/angular-data-grid.material.css 
+*/
+.sortable span.filter:before {
+  top: 15px; 
+}
+.sortable span.filter:after {
+  top: 8px; 
+}
+
+.mdl-data-table td{
+    padding-top: 0px;
+    padding-right: 18px;
+    padding-bottom: 0px;
+    padding-left: 18px;
+}
+md-dialog.fullscreen-dialog {
+    max-width: 90%;
+    max-height: 100%;
+    width: 90%;
+    height: 100%;
+    /* border-radius: 0; */
+}
+
+md-dialog.halfscreen-dialog {
+    max-width: 50%;
+    max-height: 60%;
+    width: 50%;
+    height: 60%;
+    /* border-radius: 0; */
+}
+
+
+.md-fab-top-left, 
+.md-fab-top-right,
+.md-fab-bottom-left,
+.md-fab-bottom-right{
+	position: fixed !important;
+}
+
+.transition-duration-03s{
+    -webkit-transition:  all 0.3s !important;
+    -moz-transition:  all 0.3s	  !important;
+    -o-transition:  all 0.3s	  !important;
+    transition:  all 0.3s 		  !important;
+
+}
+.expanded-icon{
+	-ms-transform: rotateZ(90deg); /* IE 9 */
+    -webkit-transform: rotateZ(90deg); /* Chrome, Safari, Opera */
+    transform: rotateZ(90deg);
+}
+.expanded-icon-inverse{
+	-ms-transform: rotateZ(-90deg); /* IE 9 */
+    -webkit-transform: rotateZ(-90deg); /* Chrome, Safari, Opera */
+    transform: rotateZ(-90deg);
+}
+.collapsed-icon{
+	-ms-transform: rotateZ(0deg); /* IE 9 */
+    -webkit-transform: rotateZ(0deg); /* Chrome, Safari, Opera */
+    transform: rotateZ(0deg);
+}
+
+.expanded-content{
+
+	min-height: none  !important;
+	max-height: 10000px  !important;
+	line-height:none  !important;
+	margin:     none  ;
+	padding:    none  ;
+
+	overflow:   none !important;
+
+}
+.expanded-content.mh-400{
+	max-height: 400px  !important;
+}
+
+.collpased-content-20-px{
+	min-height: 20px !important;
+	max-height: 20px !important;
+	line-height: 20px !important;
+	overflow: hidden !important;
+}
+
+.collpased-content-0-px{
+	min-height:  0px !important;
+	max-height:  0px !important;
+	line-height: 0px !important;
+	margin:      0px;
+	padding:     0px;
+	overflow: hidden !important;
+}
+
+md-expander-expanded{
+	max-height: none !important;
+}
+
+
+.dirty label,
+.dirty md-checkbox,
+.dirty .md-placeholder {  
+    color: #FF9800 !important; 
+} 
+
+.dirty input, 
+.dirty md-input, 
+.dirty md-select, 
+.dirty md-select-value{  
+    border-color: #FF9800 !important; 
+} 
+
+.md-autocomplete-menu-2-line-item li {
+  border-bottom: 1px solid #ccc;
+  height: auto;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  white-space: normal; 
+}
+
+.md-autocomplete-menu-2-line-item li:last-child {
+  border-bottom-width: 0; 
+}
+
+.md-autocomplete-menu-2-line-item .item-title,
+.md-autocomplete-menu-2-line-item .item-metadata {
+  display: block;
+  line-height: 2; 
+}
+
+.md-autocomplete-menu-2-line-item .item-title md-icon {
+  height: 18px;
+  width: 18px; 
+}
+
+.md-icon-badge {
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  border-radius: 50%;
+  position: absolute;
+  font-size: 10px;
+  top: 4px;
+  right: 4px;
+}

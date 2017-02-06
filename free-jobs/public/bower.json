@@ -1,0 +1,32 @@
+{
+  "name": "br.gov.sp.prodesp.portal.rh.sgtr",
+  "private": true,
+  "dependencies": {
+    "requirejs": "2.2.0",
+    "jquery": "*",
+    "jquery-nestable": "*",
+
+    "material-design-lite": "*",
+
+	"ngclipboard": "*", 
+    "linqjs": "*",
+    "lodash": "*", 
+    "moment": "*",
+
+	"angular-material": "*",
+
+	"angular-route": "*",
+	"angular-sanitize": "*",
+	"angular-resource": "*",
+	"angular-i18n": "*", 
+	
+	"angular-material-icons": "*",
+
+	"angular-data-grid": "*", 
+	
+	"angular-clear-input": "*",
+	"angular-material-expander": "*", 
+	"bootstrap": "*",
+  "fontawesome": "*"
+  }
+}
