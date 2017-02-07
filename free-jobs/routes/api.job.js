@@ -1,3 +1,4 @@
+
 module.exports = function(app, passport) {
 
   var express = require('express');
@@ -7,11 +8,27 @@ module.exports = function(app, passport) {
 
   /* GET users listing. */
   apiRouter
-    .get('/api/job/:limit/:sortBy?', function(req, res, next) {
-      var limit = req.params.limit;
-      var sortBy = req.params.sortBy;
+    .get('/api/job/:__id', function(req, res, next) {
+      var __id = req.params.__id;
       
-      Job.find(function(err, jobs) {
+      Job.findById(__id, function(err, job) {
+        if (err) res.send(err);
+
+        res.json(job._doc);
+      });
+    })
+
+    .get('/api/jobs/:limit/:sortBy/:sortByDirection/:page?', function(req, res, next) {
+      var limit = parseInt(req.params.limit);
+      var page = parseInt(req.params.page || 0);
+      var sortBy = req.params.sortBy;
+      var sortByDirection = parseInt(req.params.sortByDirection);
+      
+      Job.find()
+      .limit(limit)
+      .skip(limit * page)
+      .sort({sortBy: sortByDirection})
+      .exec(function(err, jobs) {
         if (err) res.send(err);
 
         res.json(jobs);
@@ -19,8 +36,6 @@ module.exports = function(app, passport) {
     })
 
     .post('/api/job', function(req, res, next) {
-      var limit = req.params.limit;
-      var sortBy = req.params.sortBy;
       
       var newJob = new Job(req.body);
 
@@ -28,7 +43,12 @@ module.exports = function(app, passport) {
       newJob.save(function(err) {
           if (err)
               throw err;
-          return done(null, newJob);
+
+          res.send({
+            status: 'ok', 
+            message: (newJob.__id? 'Job added successfully!': 'Job updated successfully!')
+          });
+
       });
     })
   ;

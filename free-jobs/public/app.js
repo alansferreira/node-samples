@@ -26,51 +26,39 @@ app.config(function($routeProvider, $controllerProvider, $compileProvider, $filt
 
   $locationProvider.html5Mode(false).hashPrefix('');
 
+  var fnDynamicLoad = function(deps){
+    return function ($q, $rootScope) {
+      var deferred = $q.defer();
+      
+      require (deps, function () {
+        $rootScope.$apply(function () { 
+          deferred.resolve(); 
+        });
+      });
+
+      return deferred.promise;
+    };
+  };
+
   /* Routes */
   $routeProvider
     // Lazy loading routing
     .when('/', {
       templateUrl : 'views/home.html',
       controller  : 'homeController',
-      resolve: {
-        load: function ($q, $rootScope) {
-          var deferred = $q.defer();
-          
-          require (['views/home-controller'], function () {$rootScope.$apply(function () { deferred.resolve(); });});
-
-          return deferred.promise;
-        }
-      }
+      resolve: { load: fnDynamicLoad(['views/home-controller']) }
     })
     // Lazy loading routing
     .when('/jobs/:id?', {
       templateUrl : 'views/jobs.html',
       controller  : 'jobsController',
-      resolve: {
-        load: function ($q, $rootScope) {
-          var deferred = $q.defer();
-          
-          require (['views/jobs-controller'], function () {
-            $rootScope.$apply(function () { deferred.resolve(); });
-          });
-          
-          return deferred.promise;
-        }
-      }
+      resolve: { load: fnDynamicLoad(['$http-factory/$http-job', 'views/jobs-controller']) }
     })
     // Lazy loading routing
     .when('/contact', {
       templateUrl : 'views/contact.html',
       controller  : 'contactController',
-      resolve: {
-        load: function ($q, $rootScope) {
-          var deferred = $q.defer();
-          
-          require (['views/contact-controller'], function () {$rootScope.$apply(function () { deferred.resolve(); });});
-          
-          return deferred.promise;
-        }
-      }
+      resolve: { load: fnDynamicLoad(['views/contact-controller']) }
     });
 });
 

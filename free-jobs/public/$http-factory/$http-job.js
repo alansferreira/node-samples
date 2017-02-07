@@ -1,11 +1,13 @@
-app.factory('$httpUser', function($http){
-    var urlBase = '/oficioja/api/job/';
+app.lazy.factory('$httpJob', function($http){
+    var urlBase = '/oficioja/api/';
     return {
         save: function(job){
-            return $http.post('/oficioja/api/job/', job);
+            var url = urlBase + 'job/';
+            return $http.post(url, job);
         }, 
-        get: function(limit, sortBy){
-            return $http.get('/oficioja/api/job/{limit}/{sortBy}', {limit: limit, sortBy: sortBy});
+        get: function(limit, sortBy, sortByDirection){
+            var url = urlBase + 'jobs/{limit}/{sortBy}/{sortByDirection}';
+            return $http.get(url.format({limit: limit, sortBy: sortBy, sortByDirection: sortByDirection}));
         }
 
     };

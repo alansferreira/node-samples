@@ -3,7 +3,7 @@ var leftCtrl = app.controller('LeftCtrl', function($scope, $timeout, $mdSidenav,
 		{
 			label: "Gerenciamento",
 			items: [
-				{label: "Vagas", url: '/jobs', icon:'notifications_active'    , badge: 250}, 
+				{label: "Vagas", url: '/#/jobs', icon:'notifications_active'    , badge: 250}, 
 				]
 		}, 
 		{

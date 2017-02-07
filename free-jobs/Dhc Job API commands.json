@@ -1,0 +1,97 @@
+{
+    "front-version": "1.4.2.1",
+    "version": 3,
+    "nodes": [
+        {
+            "id": "7079CE38-5E20-46E3-9E2B-2C3260DD661A",
+            "lastModified": "2017-02-07T19:09:09.155-02:00",
+            "name": "GET http://localhost:3000/oficioja/api/job/589a2f725f693e14cc658ddc",
+            "headers": [],
+            "metaInfo": {
+                "ownerId": "Local repository id"
+            },
+            "type": "Request",
+            "method": {
+                "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                "name": "GET"
+            },
+            "body": {
+                "autoSetLength": true,
+                "textBody": "{\n  \"title\": \"teste@ttt.com\"\n}",
+                "bodyType": "Text"
+            },
+            "headersType": "Form",
+            "uri": {
+                "host": "localhost:3000",
+                "path": "/oficioja/api/job/589a2f725f693e14cc658ddc",
+                "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                }
+            }
+        },
+        {
+            "id": "65F67996-F5AD-4CA9-87CC-63D54F7201B4",
+            "lastModified": "2017-02-07T18:54:06.654-02:00",
+            "name": "GET http://localhost:3000/oficioja/api/jobs/10/",
+            "headers": [],
+            "metaInfo": {
+                "ownerId": "Local repository id"
+            },
+            "type": "Request",
+            "method": {
+                "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                "name": "GET"
+            },
+            "body": {
+                "autoSetLength": true,
+                "textBody": "{\n  \"title\": \"teste@ttt.com\"\n}",
+                "bodyType": "Text"
+            },
+            "headersType": "Form",
+            "uri": {
+                "host": "localhost:3000",
+                "path": "/oficioja/api/jobs/10/",
+                "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                }
+            }
+        },
+        {
+            "id": "EA6CB3FF-3E38-4BCB-85AC-14193232AF2E",
+            "lastModified": "2017-02-07T18:50:41.890-02:00",
+            "name": "POST http://localhost:3000/oficioja/api/job/",
+            "headers": [
+                {
+                    "enabled": true,
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "metaInfo": {
+                "ownerId": "Local repository id"
+            },
+            "type": "Request",
+            "method": {
+                "requestBody": true,
+                "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+                "name": "POST"
+            },
+            "body": {
+                "autoSetLength": true,
+                "textBody": "{\n  \"title\": \"teste@ttt.com\"\n}",
+                "bodyType": "Text"
+            },
+            "headersType": "Form",
+            "uri": {
+                "host": "localhost:3000",
+                "path": "/oficioja/api/job/",
+                "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                }
+            }
+        }
+    ]
+}
