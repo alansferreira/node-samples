@@ -50,9 +50,9 @@ app.config(function($routeProvider, $controllerProvider, $compileProvider, $filt
     })
     // Lazy loading routing
     .when('/jobs/:id?', {
-      templateUrl : 'views/jobs.html',
-      controller  : 'jobsController',
-      resolve: { load: fnDynamicLoad(['$http-factory/$http-job', 'views/jobs-controller']) }
+      templateUrl : 'views/job-list.html',
+      controller  : 'jobController',
+      resolve: { load: fnDynamicLoad(['$http-factory/$http-job', 'views/job-controller']) }
     })
     // Lazy loading routing
     .when('/contact', {
