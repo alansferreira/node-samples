@@ -23,11 +23,11 @@ define(["app"], function () {
 });
 
 
-define(["app"], function (app) {
-    // We register a controller here
-    app.register.controller("ctrl1", function ($scope, $rootScope, $state) {
-        // Few lines of code for my angular-material calender control.
-        $scope.msg = 'teste';
-    });
+// define(["app"], function (app) {
+//     // We register a controller here
+//     app.register.controller("ctrl1", function ($scope, $rootScope, $state) {
+//         // Few lines of code for my angular-material calender control.
+//         $scope.msg = 'teste';
+//     });
 
-});
+// });
