@@ -2,6 +2,7 @@
   "name": "vue.js-sample1",
   "private": true,
   "dependencies": {
-    "requirejs": "2.3.2"
+    "requirejs": "2.3.2", 
+    "jquery": "latest"
   }
 }

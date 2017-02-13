@@ -1,8 +1,5 @@
 {
   "directory": "resources/bower",
   "analytics": false,
-  "timeout": 120000,
-  "strict-ssl": false,
-  "proxy": "http://aguasdesaopedro.prodesp-sede.local:80", 
-  "https-proxy":"http://aguasdesaopedro.prodesp-sede.local:80"
+  "timeout": 120000
 }
