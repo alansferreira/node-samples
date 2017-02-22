@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  md-content(ng-controller='CarController')
+  
+  h1= title
+
+
+
+block script
+  script(src='/$http-factory/$http-car.js')
+  script(src='/controllers/cars-controller.js')

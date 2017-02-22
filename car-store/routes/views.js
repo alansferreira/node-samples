@@ -1,12 +1,13 @@
 
 module.exports = function(app){
+  var config = require('/config/app.config');
   var express = require('express');
   var apiRouter = express.Router();
 
   /* bypass page names to jade views */
   app.use('/', 
     apiRouter.get('/page/:viewName', function(req, res, next) {
-      res.render(req.params.viewName, { title: 'Express' });
+      res.render(req.params.viewName, { title: config.displayName });
     })
   );
 
