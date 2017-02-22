@@ -1,0 +1,20 @@
+{
+  "name": "node-angular-mongo",
+  "private": true,
+  "dependencies": {
+    "requirejs": "2.2.0",
+    "jquery": "*",
+    
+    "ngclipboard": "*",
+
+    "linqjs": "*",
+    "lodash": "*",
+    "moment": "*",
+    "angular-material": "*",
+    "angular-route": "*",
+    "angular-sanitize": "*",
+    "angular-resource": "*",
+    "angular-i18n": "*",
+    "angular-material-icons": "*"
+  }
+}

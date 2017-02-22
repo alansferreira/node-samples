@@ -2,11 +2,17 @@
 var child_process =  require('child_process');
 
 try {
-  child_process.execSync('taskkill /F /IM mongod.exe');
+  console.log("restarting mongodb...")
+  //child_process.execSync('taskkill /F /IM mongod.exe');
+  child_process.execSync('start mongo/bin/mongo admin --eval \"db.shutdownServer({timeoutSecs: 60});\"');
+  console.log("mongodb shutdowned!")
 } catch (error) {
+  console.warn('error on trying restarting mongodb, maybe the process has locked!');
+  console.error(error);
 }
 
-var mongo = child_process.exec('mongo\\bin\\mongod --dbpath mongo\\data', (error, stdout, stderr) => {
+
+var mongo = child_process.exec('start mongo/bin/mongod --dbpath mongo/data', (error, stdout, stderr) => {
   if (error) {
     console.error('exec error: ${error}');
     return;
@@ -14,6 +20,8 @@ var mongo = child_process.exec('mongo\\bin\\mongod --dbpath mongo\\data', (error
   console.log('stdout: ${stdout}');
   console.log('stderr: ${stderr}');
 });
+
+console.log('mongodb has started!')
 
 //update package version
 //var npm = child_process.execSync('npm version prerelease');

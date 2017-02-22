@@ -1,0 +1,5 @@
+mongod.pdb
+mongos.pdb
+mongo/data/*
+
+public/bower/*
