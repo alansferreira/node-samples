@@ -8,7 +8,6 @@
 
 
 >## Usage
-
 1. Download and install [Node](https://nodejs.org/en/download/) 
 2. Check and install npm modules run `npm i`
 3. Start '*bin\www*' with your IDE or run `npm start`
