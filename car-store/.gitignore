@@ -1,5 +1,9 @@
+# mongodb data files
 mongod.pdb
 mongos.pdb
-mongo/data/*
+mongo/data/*.*
+mongo/data/WiredTiger*
+mongo/data/diagnostic.data/
+mongo/data/journal/
 
 public/bower/*
