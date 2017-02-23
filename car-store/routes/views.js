@@ -1,6 +1,6 @@
 
 module.exports = function(app){
-  var config = require('/config/app.config');
+  var config = require('../config/app.config');
   var express = require('express');
   var apiRouter = express.Router();
 

@@ -1,5 +1,11 @@
 app.controller('CarController', function($scope, $httpCar){
-    $scope.data = {filter: {}, list: []};
+    $scope.data = {
+        car: {}, 
+        filter: {}, list: [], 
+        marks: [
+            'Citroen', 'Renault', 'Fiat', 'Volkswagen'
+        ]
+    };
     $scope.methods = {};
 
     $scope.methods.list = function(){

@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  md-content(ng-controller='CarEditController')
+    form
+      md-input-container
+        label Marca
+        md-select(ng-model="data.car.mark")
+          md-option(ng-repeat='mark in data.marks' ng-value='mark') {{mark.name}}
+
+      md-input-container
+        label Modelo
+        md-select(ng-model="data.car.mark.model")
+          md-option(ng-repeat='model in data.car.mark.models' ng-value='model.name') {{model.name}}
+  
+
+  
+
+
+block script
+  script(src='/$http-factory/$http-mark.js')
+  script(src='/$http-factory/$http-car.js')
+  script(src='/controllers/cars-edit-controller.js')

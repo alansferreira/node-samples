@@ -2,34 +2,28 @@ module.exports = function(app, passport) {
 
   var express = require('express');
   var apiRouter = express.Router();
-  var Car = require('../models/model.car');
+  var Mark = require('../models/model.mark');
 
 
   /* GET users listing. */
   apiRouter
-    .get('/api/car', function(req, res) {
-      Car.find(function(err, users) {
-        if (err) res.send(err);
+    .get('/api/mark/:name?', function(req, res) {
+      if(req.params.name){
+        Mark.find({name: name}, function(err, marks) {
+          if (err) res.send(err);
 
-        res.json(users);
-      });
-    })
-    .post('/api/car', canUserModifyCar, function(req, res) {
-      var newCar = new Car(req.body);
-      newCar.save(function(err, car) {
-        if (err) res.send(err);
-        res.json(car);
-      });
-    })
-    .delete('/api/car', canUserModifyCar, function(req, res) {
-      var delCar = req.body;
+          res.json(marks);
+        });
 
-      Car.remove({_id: delCar._id}, function(err) {
-        if (err) res.send(err);
-        
-        res.send({status: 'ok', message: 'removed success!'});
-      });
-    });
+      }else{
+        Mark.find(function(err, marks) {
+          if (err) res.send(err);
+
+          res.json(marks);
+        });
+      }
+    })
+    ;
 
   return apiRouter;
 };

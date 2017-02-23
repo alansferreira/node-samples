@@ -3,9 +3,55 @@ html
   head
     title= title
     link(rel="stylesheet" href='/bower/angular-material/angular-material.min.css')
+    link(rel="stylesheet" href="/bower/angular-material-icons/angular-material-icons.css")
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic")
   body(ng-app='app')
-    block content
+    md-content(layout="column" flex="" layout-fill="" ng-cloak="")
+    
+      md-toolbar(class="md-hue-2" ng-controller="LayoutController" md-scroll-shrink="md-scroll-shrink")
+        div(class="md-toolbar-tools")
+          md-button(ng-click="toggleLeft()" class="md-icon-button" aria-label="Abrir/Fechar menu")
+            ng-md-icon(icon="menu")
+
+          h2
+            span SGTR 
+              small {version}
+
+          span(flex="50px")
+          h3
+            span(hide-xs="") {title}
+            span(hide-gt-xs="") {small_title}
+          
+          span(flex="flex")
+
+
+      div(flex="" layout="row")
+        md-sidenav(class="md-sidenav-left" md-component-id="left" md-whiteframe="4" )
+          md-toolbar(class="md-theme-indigo" ng-controller="LayoutController")
+            h1(class="md-toolbar-tools" hide-xs="hide-xs") SGTR
+            
+            md-button(ng-click="close()" hide-gt-md="hide-gt-md" aria-label="Fechar menu" )
+              ng-md-icon(icon="menu")
+          
+          md-content(ng-controller="LayoutController")
+            md-list(layout-fill="")
+              md-subheader(ng-repeat-start="group in groups" class="md-no-sticky")
+               strong {{group.label}}
+              md-list-item(ng-repeat="item in group.items" ng-click="open(item);" md-colors="{'background': (isActiveMenu(item) ? 'blue-grey': null)}" )
+                
+                md-button(class="md-icon-button")
+                  ng-md-icon(icon="{{item.icon}}") 
+
+                {{item.label}}
+
+                span(flex="")
+              
+              md-divider(ng-repeat-end="")
+            
+        
+        md-content(flex="" )
+          block content
+        
 
 
     script(src="/bower/requirejs/require.js")
@@ -19,7 +65,7 @@ html
     script(src="/bower/angular-material/angular-material.min.js")
     
     script(src="/bower/angular-material-icons/angular-material-icons.min.js")
-    
+
     script(src="/app.js")
 
     block script
