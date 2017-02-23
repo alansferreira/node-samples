@@ -7,7 +7,7 @@ module.exports = function(app){
   /* bypass page names to jade views */
   app.use('/', 
     apiRouter.get('/page/:viewName', function(req, res, next) {
-      res.render(req.params.viewName, { title: config.displayName });
+      res.render(req.params.viewName, { title: config.displayName, version: config.version });
     })
   );
 

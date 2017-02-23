@@ -1,6 +1,6 @@
 {
   "name": "node-angular-mongo",
-  "version": "0.0.1-51",
+  "version": "0.0.1-52",
   "private": true,
   "scripts": {
     "prestart": "mongo/bin/mongod --dbpath mongo/data",
