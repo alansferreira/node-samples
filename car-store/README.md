@@ -2,9 +2,10 @@
 ## Project features
 1. MongoDb **embeded process**, if not have an current running
 2. Passport autentication with MongoDb
-3. Rest Api routes
-4. Jade templating
-5. Angular Material theme
+3. Express framework
+4. Rest Api routes
+5. Jade templating
+6. Angular Material theme
 
 
 ## Usage
@@ -18,4 +19,5 @@
 3. POST /api/user/signup *insert user local account*
 4. POST /api/user/signin *login and return login status*
 5. POST /api/user/signout *logout and return login status*
+
 
