@@ -1,5 +1,5 @@
 # Skeleton Project Node
->## Project features
+## Project features
 1. MongoDb **embeded process**, if not have an current running
 2. Passport autentication with MongoDb
 3. Rest Api routes
@@ -7,12 +7,12 @@
 5. Angular Material theme
 
 
->## Usage
+## Usage
 1. Download and install [Node](https://nodejs.org/en/download/) 
 2. Check and install npm modules run `npm i`
 3. Start '*bin\www*' with your IDE or run `npm start`
 
->## Testing RESTFull apis routes
+## Testing RESTFull apis routes
 1. Download and open DHC extenssion for google chrome and import '`Dhc commands.json`', then execute these commands
 2. GET  /api/user/login-status *check user login status*
 3. POST /api/user/signup *insert user local account*
