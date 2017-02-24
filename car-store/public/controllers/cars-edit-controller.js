@@ -1,6 +1,7 @@
-app.controller('CarEditController', function($scope, $httpStore, $mdToast){
+app.controller('CarEditController', function($scope, $httpStore, $mdToast, Upload){
     $scope.data = {
         car: {}, 
+        files: [], 
         
         avaible_marks: [], 
         avaible_models: [], 
@@ -23,19 +24,30 @@ app.controller('CarEditController', function($scope, $httpStore, $mdToast){
     $scope.methods.save = function(){
         $httpStore.save($scope.data.car)
         .then(function(res){
-            var msg = 'Ok, veículo publicado!';
-            if(!res.data._id){
-                msg = 'Ops! Aconteceu alguma coisa errada durante a publicação!'
+            $scope.data.car = res.data;
+       
+            if (!$scope.data.files || !$scope.data.files.length) return ;
+            
+            for (var i = 0; i < $scope.data.files.length; i++) {
+                Upload.upload($scope.data.files[i]);
             }
-
-            $mdToast.show(
-                $mdToast.simple()
-                    .textContent(msg)
-                    .hideDelay(3000)
-            );
+            
         });
     };
-
+    
+    $scope.methods.upload = function (file) {
+        Upload.upload({
+            url: '/api/store',
+            data: {file: file, '_id': $scope.data.car._id}
+        }).then(function (resp) {
+            console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+        }, function (resp) {
+            console.log('Error status: ' + resp.status);
+        }, function (evt) {
+            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+        });
+    };
 
     $scope.methods.loadMarks();
 });

@@ -3,7 +3,7 @@ require.config({
 });
 
 
-var app = angular.module('app', ['ngMaterial', 'ngMdIcons', 'ngRoute']);
+var app = angular.module('app', ['ngMaterial', 'ngMdIcons', 'ngRoute', 'ngFileUpload']);
 
 
 

@@ -3,18 +3,17 @@
   "private": true,
   "dependencies": {
     "requirejs": "2.2.0",
-    "jquery": "*",
-    
-    "ngclipboard": "*",
-
-    "linqjs": "*",
-    "lodash": "*",
-    "moment": "*",
-    "angular-material": "*",
-    "angular-route": "*",
-    "angular-sanitize": "*",
-    "angular-resource": "*",
-    "angular-i18n": "*",
-    "angular-material-icons": "*"
+    "jquery": "3.1.1",
+    "ngclipboard": "1.1.1",
+    "linqjs": "3.0.5",
+    "lodash": "4.17.4",
+    "moment": "2.17.1",
+    "angular-material": "1.1.3",
+    "angular-route": "1.6.2",
+    "angular-sanitize": "1.6.2",
+    "angular-resource": "1.6.2",
+    "angular-i18n": "1.6.2",
+    "angular-material-icons": "0.7.1",
+    "ng-file-upload": "^12.2.13"
   }
 }

@@ -2,7 +2,7 @@ extends layout
 
 block content
   md-content(ng-controller='CarEditController')
-    form
+    form(name='form1')
       md-input-container
         label Marca
         md-select(ng-model="data.selected_mark" ng-change='methods.changeMark()')
@@ -13,6 +13,7 @@ block content
         md-select(ng-model="data.car.model")
           md-option(ng-repeat='model in data.avaible_models' ng-value='model') {{model}}
   
+      div(class="button" ngf-select ng-model="data.files" ngf-multiple="true") Select
 
       md-button(class='md-raised md-primary' ng-click='methods.save()') PUBLICAR
 

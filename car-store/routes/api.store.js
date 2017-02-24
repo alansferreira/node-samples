@@ -34,6 +34,11 @@ module.exports = function(app, passport) {
     })
     .post('/api/store', canUserModifyStore, function(req, res) {
       var newStore = new Store(req.body);
+
+      if (!req.files) return res.status(400).send('No files were uploaded.');
+      console.log(req.files);
+      res.status(200).send('Files uploaded!');
+
       newStore.save(function(err, Store) {
         if (err) res.send(err);
         res.json(Store);
