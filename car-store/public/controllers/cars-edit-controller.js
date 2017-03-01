@@ -2,7 +2,9 @@ app.controller('CarEditController', function($scope, $httpStore, $mdToast, Uploa
     $scope.data = {
         car: {}, 
         files: [], 
-        
+        namedProgresses: {}, 
+        uploadingIndex: -1,
+
         avaible_marks: [], 
         avaible_models: [], 
         selected_mark: {}
@@ -27,24 +29,33 @@ app.controller('CarEditController', function($scope, $httpStore, $mdToast, Uploa
             $scope.data.car = res.data;
        
             if (!$scope.data.files || !$scope.data.files.length) return ;
-            
-            for (var i = 0; i < $scope.data.files.length; i++) {
-                $scope.methods.upload($scope.data.files[i]);
-            }
+            $scope.data.uploadingIndex = 0;
+            //start recursive dequeue uploads
+            $scope.methods.upload($scope.data.files[$scope.data.uploadingIndex++]);
             
         });
     };
     
     $scope.methods.upload = function (file) {
         Upload.upload({
-            url: '/api/store/attach/' + $scope.data.car.id,
+            url: '/api/store/attach/' + $scope.data.car._id,
             data: {file: file}
         }).then(function (resp) {
             console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+
+            //recursive dequeue uploads
+            if (!$scope.data.files || !$scope.data.files.length) return ;
+            if($scope.data.uploadingIndex >= $scope.data.files.length ) return;
+
+            $scope.methods.upload($scope.data.files[$scope.data.uploadingIndex++]);
+
         }, function (resp) {
             console.log('Error status: ' + resp.status);
         }, function (evt) {
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            
+            $scope.data.namedProgresses[evt.config.data.file.name] = progressPercentage;
+
             console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
         });
     };

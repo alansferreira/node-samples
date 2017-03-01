@@ -67,7 +67,7 @@ module.exports = function(app, passport) {
       var fn_callback = function(err, Store) {
         if (err) return res.send(err);
         
-        res.json(Store);
+        res.status(200).json(Store);
       };
       
       newStore.save(fn_callback);

@@ -15,6 +15,15 @@ block content
   
       div(class="button" ngf-select ng-model="data.files" ngf-multiple="true") Select
       
+      md-grid-list(md-cols="1" md-cols-sm="4" md-cols-md="3" md-cols-gt-md="6"
+        md-row-height-gt-md="1:1" md-row-height="4:3"
+        md-gutter="8px" md-gutter-gt-sm="4px")
+        md-grid-tile(ng-repeat="file in data.files")
+          md-progress-linear(ng-mode='determinate' value='{{data.namedProgresses[file.name]}}')
+          md-grid-tile-footer
+            h3 {{file.name}}
+
+
       md-button(class='md-raised md-primary' ng-click='methods.save()') PUBLICAR
 
 
