@@ -29,7 +29,7 @@ app.controller('CarEditController', function($scope, $httpStore, $mdToast, Uploa
             if (!$scope.data.files || !$scope.data.files.length) return ;
             
             for (var i = 0; i < $scope.data.files.length; i++) {
-                Upload.upload($scope.data.files[i]);
+                $scope.methods.upload($scope.data.files[i]);
             }
             
         });
@@ -37,8 +37,8 @@ app.controller('CarEditController', function($scope, $httpStore, $mdToast, Uploa
     
     $scope.methods.upload = function (file) {
         Upload.upload({
-            url: '/api/store',
-            data: {file: file, '_id': $scope.data.car._id}
+            url: '/api/store/attach/' + $scope.data.car.id,
+            data: {file: file}
         }).then(function (resp) {
             console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
         }, function (resp) {

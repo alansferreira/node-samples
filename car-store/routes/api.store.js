@@ -32,17 +32,46 @@ module.exports = function(app, passport) {
         res.json(users);
       });
     })
+    .post('/api/store/attach/:id', canUserModifyStore, function(req, res) {
+
+      if (!req.files) return res.status(400).send('No files were uploaded.');
+
+      var _id = req.params.id;
+      
+      var fn_attach = function(id, file){
+        console.log('File ' + file.file.name + ' uploaded!');
+        res.status(200).send('File ' + file.file.name + ' uploaded!');
+      };
+
+      if(!_id){
+        var newStore = new Store(req.body);
+
+        newStore.save(function(err, store) {
+          if (err) res.send(err);
+          _id = store._id;
+
+          fn_attach(_id, req.files);
+        });
+
+      }else{
+          fn_attach(_id, req.files);
+      }
+
+    })
     .post('/api/store', canUserModifyStore, function(req, res) {
       var newStore = new Store(req.body);
 
-      if (!req.files) return res.status(400).send('No files were uploaded.');
-      console.log(req.files);
-      res.status(200).send('Files uploaded!');
-
-      newStore.save(function(err, Store) {
-        if (err) res.send(err);
+      // if (!req.files) return res.status(400).send('No files were uploaded.');
+      // console.log(req.files);
+      // res.status(200).send('Files uploaded!');
+      var fn_callback = function(err, Store) {
+        if (err) return res.send(err);
+        
         res.json(Store);
-      });
+      };
+      
+      newStore.save(fn_callback);
+
     })
     .delete('/api/store', canUserModifyStore, function(req, res) {
       var delStore = req.body;

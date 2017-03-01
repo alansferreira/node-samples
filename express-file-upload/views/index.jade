@@ -5,5 +5,40 @@ block content
   p Welcome to #{title}
 
   form(name='formUpload' action='/upload' method='post' encType="multipart/form-data")
+    p form test
     input(type='file' name='file_1')
     input(type='submit' value='send file')
+  
+  hr
+  br
+
+  div(ng-app='app1')
+    div(ng-controller='ctrl1')
+      p angular test
+      div(class="button" ngf-select="upload($file)") Upload on file select
+      
+  
+  script(src='/bower/angular/angular.min.js')
+  script(src='/bower/ng-file-upload/ng-file-upload-all.min.js')
+
+  script(type="text/javascript").
+    var app1 = angular.module('app1', ['ngFileUpload']);
+    var ctrl1 = app1.controller('ctrl1', function($scope, Upload){
+      $scope.msg = 'teste'
+     
+      $scope.upload = function(file){
+        Upload.upload({
+            url: '/upload',
+            data: {file: file, 'username': $scope.username}
+        }).then(function (resp) {
+            console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+        }, function (resp) {
+            console.log('Error status: ' + resp.status);
+        }, function (evt) {
+            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+        });
+      };
+
+    });
+
