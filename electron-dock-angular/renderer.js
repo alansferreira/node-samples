@@ -11,7 +11,7 @@ var fs = require('fs');
 
 
 var app = angular.module('app', []);
-app.controller('testectrl', function($scope){
+app.controller('testectrl', function ($scope) {
   $scope.msg = 'hello angu!'
 });
 
@@ -23,31 +23,32 @@ console.log('golden-layout loaded!');
 
 var config = {
   content: [{
-    type: 'row',
-    content: [
+    type: 'column',
+    content: [{
+      type: 'row',
+      content: [
+        { type: 'component', componentName: 'example', componentState: { text: 'left tools' } },
         {
-        type:'component',
-        componentName: 'example',
-        componentState: { text: 'Component 1' }
-        },
-      {
-        type:'component',
-        componentName: 'example',
-        componentState: { text: 'Component 2' }
-        },
-      {
-        type:'component',
-        componentName: 'example',
-        componentState: { text: 'Component 3' }
-        }
-    ]
+          type: 'column',
+          content: [
+            { type: 'component', componentName: 'example', componentState: { text: 'documents' } },
+            {
+              type: 'stack',
+              content: [
+                { type: 'component', componentName: 'example', componentState: { text: 'bottom left tools' } },
+                { type: 'component', componentName: 'example', componentState: { text: 'bottom right tools' } },
+              ]
+            }
+          ]
+        }]
+    }]
   }]
 };
 var myLayout = new GoldenLayout(config);
 
-myLayout.registerComponent( 'example', function( container, state ){
-  container.getElement().html( '<h2>' + state.text + '</h2>');
+myLayout.registerComponent('example', function (container, state) {
+  container.getElement().html('<h2>' + state.text + '</h2>');
 });
 
-myLayout.init();    
+myLayout.init();
 
