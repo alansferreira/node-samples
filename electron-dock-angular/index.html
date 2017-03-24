@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="node_modules/golden-layout/src/css/goldenlayout-base.css">
+    <link rel="stylesheet" href="node_modules/golden-layout/src/css/goldenlayout-dark-theme.css">
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <!-- All of the Node.js APIs are available in this renderer process. -->
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chromium <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
+    <div ng-app="app">
+      <div ng-controller="testectrl">
+        {{msg}}
+      </div>
+    </div>
+
+  </body>
+  <script>
+    window.$ = window.jQuery = require('jquery');
+    
+    require('./renderer.js');
+
+
+  </script>
+</html>
